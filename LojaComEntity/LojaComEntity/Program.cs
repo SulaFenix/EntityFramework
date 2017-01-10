@@ -13,19 +13,13 @@ namespace LojaComEntity
         static void Main(string[] args)
         {
             EntidadesContext contexto = new EntidadesContext();
+            ProdutoDao dao = new ProdutoDao(contexto);
 
-            decimal precoMinimo = 40;
+            var resultado = dao.BuscaPorNomePrecoNomeCategoria("Mouse", 50, null);
 
-            var busca = from p in contexto.Produtos 
-                        where p.Categoria.Nome == "Roupas" && p.Preco > precoMinimo
-                        orderby p.Preco
-                        select p;
-
-            IList<Produto> resultado = busca.ToList();
-
-            foreach(var produto in resultado)
+            foreach(var p in resultado)
             {
-                Console.WriteLine(produto.Nome + " - " + produto.Preco);
+                Console.WriteLine(p.Nome);
             }
 
             Console.ReadLine();
