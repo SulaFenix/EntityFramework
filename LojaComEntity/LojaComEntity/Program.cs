@@ -11,16 +11,12 @@ namespace LojaComEntity
     {
         static void Main(string[] args)
         {
-            ManipuladorUsuario manipulador = new ManipuladorUsuario();
-            Usuario vitor = new Usuario()
-            {
-                Nome = "Vitor",
-                Senha = "123"
-            };
+            UsuarioDao dao = new UsuarioDao();
+            Usuario renan = dao.BuscaPorId(1);
 
-            manipulador.Salva(vitor);
+            renan.Nome = "Renan Saggio";
+            dao.SaveChanges();
 
-            Console.WriteLine("Salvou o usuário");
             Console.ReadLine();
         }
     }
