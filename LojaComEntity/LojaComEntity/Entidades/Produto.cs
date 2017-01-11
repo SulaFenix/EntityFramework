@@ -17,5 +17,7 @@ namespace LojaComEntity.Entidades
         public virtual Categoria Categoria { get; set; }
 
         public int CategoriaID { get; set; }
+
+        public virtual IList<ProdutoVenda> ProdutoVenda { get; set; }
     }
 }

@@ -13,13 +13,42 @@ namespace LojaComEntity
         static void Main(string[] args)
         {
             EntidadesContext contexto = new EntidadesContext();
-            ProdutoDao dao = new ProdutoDao(contexto);
+            //UsuarioDao dao = new UsuarioDao();
+            //Usuario renan = dao.BuscaPorId(1);
 
-            var resultado = dao.BuscaPorNomePrecoNomeCategoria("Mouse", 50, null);
+            //Venda v = new Venda()
+            //{
+            //    Cliente = renan
+            //};
 
-            foreach(var p in resultado)
+            //Produto p = contexto.Produtos.FirstOrDefault(prod => prod.ID == 1);
+            //Produto p2 = contexto.Produtos.FirstOrDefault(prod => prod.ID == 2);
+
+            //ProdutoVenda pv = new ProdutoVenda()
+            //{
+            //    Venda = v,
+            //    Produto = p
+            //};
+
+            //ProdutoVenda pv2 = new ProdutoVenda()
+            //{
+            //    Venda = v,
+            //    Produto = p2
+            //};
+
+            //contexto.Vendas.Add(v);
+            //contexto.ProdutoVenda.Add(pv);
+            //contexto.ProdutoVenda.Add(pv2);
+            //contexto.SaveChanges();
+
+            Venda venda = contexto.Vendas
+                .Include(v => v.ProdutoVenda)
+                .ThenInclude(pv => pv.Produto)
+                .FirstOrDefault(v => v.ID == 1);
+
+            foreach(var pv in venda.ProdutoVenda)
             {
-                Console.WriteLine(p.Nome);
+                Console.WriteLine(pv.Produto.Nome);
             }
 
             Console.ReadLine();
