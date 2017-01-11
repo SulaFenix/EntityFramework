@@ -21,6 +21,10 @@ namespace LojaComEntity
 
         public DbSet<ProdutoVenda> ProdutoVenda { get; set; }
 
+        public DbSet<PessoaFisica> PessoasFisicas { get; set; }
+
+        public DbSet<PessoaJuridica> PessoasJuridica { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string stringConexao = ConfigurationManager.ConnectionStrings["lojaConnectionString"].ConnectionString;

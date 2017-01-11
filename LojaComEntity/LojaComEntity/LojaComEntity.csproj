@@ -128,6 +128,8 @@
   <ItemGroup>
     <Compile Include="EntidadesContext.cs" />
     <Compile Include="Entidades\Categoria.cs" />
+    <Compile Include="Entidades\PessoaFisica.cs" />
+    <Compile Include="Entidades\PessoaJuridica.cs" />
     <Compile Include="Entidades\Produto.cs" />
     <Compile Include="Entidades\ProdutoVenda.cs" />
     <Compile Include="Entidades\Usuario.cs" />
@@ -149,6 +151,10 @@
     <Compile Include="Migrations\20170111003102_criaVenda.cs" />
     <Compile Include="Migrations\20170111003102_criaVenda.designer.cs">
       <DependentUpon>20170111003102_criaVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170111005454_tiposUsuarios.cs" />
+    <Compile Include="Migrations\20170111005454_tiposUsuarios.designer.cs">
+      <DependentUpon>20170111005454_tiposUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\EntidadesContextModelSnapshot.cs" />
     <Compile Include="ProdutoDao.cs" />

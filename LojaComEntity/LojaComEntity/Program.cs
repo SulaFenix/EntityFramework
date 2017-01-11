@@ -41,15 +41,34 @@ namespace LojaComEntity
             //contexto.ProdutoVenda.Add(pv2);
             //contexto.SaveChanges();
 
-            Venda venda = contexto.Vendas
-                .Include(v => v.ProdutoVenda)
-                .ThenInclude(pv => pv.Produto)
-                .FirstOrDefault(v => v.ID == 1);
+            //Venda venda = contexto.Vendas
+            //    .Include(v => v.ProdutoVenda)
+            //    .ThenInclude(pv => pv.Produto)
+            //    .FirstOrDefault(v => v.ID == 1);
 
-            foreach(var pv in venda.ProdutoVenda)
+            //foreach(var pv in venda.ProdutoVenda)
+            //{
+            //    Console.WriteLine(pv.Produto.Nome);
+            //}
+
+            PessoaFisica pf = new PessoaFisica()
             {
-                Console.WriteLine(pv.Produto.Nome);
-            }
+                Nome = "Guilherme",
+                CPF = "123456",
+                Senha = "123"
+            };
+
+            contexto.PessoasFisicas.Add(pf);
+
+            PessoaJuridica pj = new PessoaJuridica()
+            {
+                Nome = "Alura",
+                CNPF = "789",
+                Senha = "123"
+            };
+
+            contexto.PessoasJuridica.Add(pj);
+            contexto.SaveChanges();
 
             Console.ReadLine();
         }
